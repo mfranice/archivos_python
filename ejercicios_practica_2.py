@@ -28,7 +28,12 @@ def ej3():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
     
+    csvfile = open('stock.csv')
+    stock = list(csv.DictReader(csvfile))
+    csvfile.close()
 
+    for (k,v) in 
+        
 
 def ej4():
     print('Ejercicios con archivos CSV 2º')

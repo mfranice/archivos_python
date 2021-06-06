@@ -32,8 +32,20 @@ def ej3():
     stock = list(csv.DictReader(csvfile))
     csvfile.close()
 
-    for (k,v) in 
+    stock_tornillos = 0
+
+    for fila in stock:
+        print(fila['tornillos'])
         
+        try:
+            stock_tornillos = stock_tornillos + int(fila['tornillos'])
+        except:
+            print('Ocurrió un error en la lectura de la variable')
+    
+    print('El stock total de tornillos es:', stock_tornillos) 
+
+    return
+
 
 def ej4():
     print('Ejercicios con archivos CSV 2º')
@@ -52,6 +64,31 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+    csvfile = open('propiedades.csv')
+    propiedades = list(csv.DictReader(csvfile))
+    csvfile.close()
+
+    i = 0
+    dpto_dos_ambientes = 0
+    dpto_tres_ambientes = 0
+
+    for fila in propiedades:
+        try:
+            ambientes = int(fila['ambientes'])
+        except:
+            print('El valor de la fila,', i, 'no se pudo leer correctamente')
+        i += 1
+
+        if ambientes == 2:
+            dpto_dos_ambientes += 1
+        elif ambientes == 3:
+            dpto_tres_ambientes += 1
+
+    print('La cantidad de departamentos de 2 ambientes disponible es:', dpto_dos_ambientes)
+    print('La cantidad de departamentos de 3 ambientes disponible es:', dpto_tres_ambientes)
+            
+    return
 
 
 if __name__ == '__main__':
